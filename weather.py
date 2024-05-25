@@ -1,7 +1,11 @@
 import requests
 
+from logger import logger
+
 
 def get_weather_data(city: list[str]):
+    logger.info(f"get weather data of {city}")
+
     """
     回傳臺灣各縣市未來七天內多個時段的天氣預報
     台中、台北等要轉換成臺中、臺北

@@ -1,10 +1,10 @@
 import os
-import logging
 
 import discord
 from dotenv import load_dotenv
 
 import gemini
+from logger import logger
 
 load_dotenv()
 
@@ -13,13 +13,6 @@ TOKEN = os.getenv("BOT_TOKEN")
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
-
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s - [%(levelname)s] - %(message)s",
-)
-logger = logging.getLogger(__name__)
 
 
 @client.event
@@ -33,9 +26,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    log = f"""
-    From: {message.author} in {message.channel}
-        {message.content}
+    log = f"""From: {message.author} in {message.channel}
+    {message.content}
     """
     logger.info(log)
 
