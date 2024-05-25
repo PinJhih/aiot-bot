@@ -26,7 +26,7 @@ async def on_message(message):
         return
 
     if client.user.mentioned_in(message):
-        response = gemini.send_message(message)
+        response = gemini.send_message(message.content)
         await message.channel.send(f"{response}")
 
 
