@@ -27,8 +27,13 @@ safety_settings = [
 
 model = genai.GenerativeModel(
     model_name="gemini-1.5-flash",
-    generation_config=generation_config,
     safety_settings=safety_settings,
+    generation_config=generation_config,
+    system_instruction="""
+        你現在被部署在一台 raspberry pi 3 上，並且作為一個 Discord 伺服器的聊天機器人。
+        你現在可以透過我提供給你的 function，查詢最近台灣各縣市的天氣、讀取目前的氣溫和濕度，以及控制 raspberry 連結的電燈的能力。
+        請你依照大家的訊息，並利用我提供的 function，盡可能取得所需的資訊，並給出適當的建議和操作。
+        """,
     tools=[weather.get_weather_data],
 )
 
