@@ -51,3 +51,8 @@ chat = model.start_chat(enable_automatic_function_calling=True)
 def send_message(message):
     response = chat.send_message(message)
     return response.text
+
+
+def send_image(message, image):
+    response = chat.send_message([message, image])
+    return response.text
