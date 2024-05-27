@@ -3,7 +3,7 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-import raspberry
+import gpio_controller
 import weather
 
 
@@ -38,10 +38,10 @@ model = genai.GenerativeModel(
         """,
     tools=[
         weather.get_weather_data,
-        raspberry.turn_on_classroom_light,
-        raspberry.turn_on_lab_light,
-        raspberry.turn_off_classroom_light,
-        raspberry.turn_off_lab_light,
+        gpio_controller.turn_on_classroom_light,
+        gpio_controller.turn_on_lab_light,
+        gpio_controller.turn_off_classroom_light,
+        gpio_controller.turn_off_lab_light,
     ],
 )
 
