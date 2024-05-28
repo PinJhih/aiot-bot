@@ -2,3 +2,4 @@ discord
 python-dotenv
 google-generativeai
 pyserial
+pillow
